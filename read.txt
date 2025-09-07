@@ -1,0 +1,16 @@
+water-demand-prediction/
+├── app.py                  # Flask application
+├── train_model.py          # Model training script
+├── water_data.csv          # Synthetic dataset
+├── model.pkl               # Trained model
+├── static/
+│   ├── css/
+│   │   └── style.css       # CSS stylesheet
+│   └── images/
+│       ├── historical.png  # Historical data chart
+│       └── comparison.png  # Comparison chart
+└── templates/
+    ├── base.html           # Base template with sidebar
+    ├── index.html          # Home page
+    ├── about.html          # About page
+    └── predict.html        # Prediction form and results
