@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>Forecast Water Demand</h1>
+    
+    <div class="prediction-form">
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="population">Population:</label>
+                <input type="number" id="population" name="population" required placeholder="e.g., 2000000">
+            </div>
+            
+            <div class="form-group">
+                <label for="industries">Number of Industries:</label>
+                <input type="number" id="industries" name="industries" required placeholder="e.g., 300">
+            </div>
+            
+            <div class="form-group">
+                <label for="temperature">Average Temperature (°C):</label>
+                <input type="number" step="0.1" id="temperature" name="temperature" required placeholder="e.g., 30.5">
+            </div>
+            
+            <div class="form-group">
+                <label for="irrigation">Irrigation Area (hectares):</label>
+                <input type="number" id="irrigation" name="irrigation" required placeholder="e.g., 7000">
+            </div>
+            
+            <div class="form-group">
+                <label for="rainfall">Annual Rainfall (mm):</label>
+                <input type="number" id="rainfall" name="rainfall" required placeholder="e.g., 650">
+            </div>
+            
+            <div class="form-submit">
+                <button type="submit" class="button">Predict Water Demand</button>
+            </div>
+        </form>
+    </div>
+    
+    {% if prediction %}
+    <div class="prediction-result">
+        <h2>Prediction Results</h2>
+        <div class="result-value">
+            <p>Estimated Water Requirement: <span class="highlight">{{ prediction }} TMC</span></p>
+        </div>
+        
+        <div class="analysis-report">
+            <h3>Analysis Report</h3>
+            
+            <div class="input-summary">
+                <h4>Your Input Values:</h4>
+                <ul>
+                    {% for key, value in input_data.items() %}
+                    <li><strong>{{ key }}:</strong> {{ value }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            
+            <div class="charts">
+                <div class="chart">
+                    <h4>Historical Trend</h4>
+                    <img src="{{ url_for('static', filename='images/historical.png') }}" alt="Historical Water Requirement Trend">
+                </div>
+                
+                <div class="chart">
+                    <h4>Comparison with Historical Average</h4>
+                    <img src="{{ url_for('static', filename='images/comparison.png') }}" alt="Comparison Chart">
+                </div>
+            </div>
+            
+            <div class="interpretation">
+                <h4>Interpretation:</h4>
+                <p>The prediction is based on the Random Forest Regression model trained on 30 years of historical data. The model has identified key relationships between the input factors and water demand.</p>
+                <p>The comparison chart shows how your input values compare to historical averages, which helps explain the predicted water requirement.</p>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if error %}
+    <div class="error-message">
+        <p>Error: {{ error }}</p>
+        <p>Please check your input values and try again.</p>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

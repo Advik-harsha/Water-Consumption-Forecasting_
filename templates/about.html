@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>About The Project</h1>
+    
+    <div class="about-section">
+        <h2>Project Overview</h2>
+        <p>The Water Demand Prediction project is designed to help water resource managers, urban planners, and policymakers make informed decisions about water allocation and infrastructure development. By leveraging machine learning techniques, specifically Random Forest Regression, this application provides accurate forecasts of water requirements based on key demographic, industrial, and environmental factors.</p>
+    </div>
+    
+    <div class="about-section">
+        <h2>Methodology</h2>
+        <p>Our prediction model is trained on 30 years of historical data, capturing the relationships between various factors and water demand. The model considers:</p>
+        <ul>
+            <li><strong>Population:</strong> The number of residents in the area</li>
+            <li><strong>Industrial Activity:</strong> The number of industries operating in the region</li>
+            <li><strong>Climate Conditions:</strong> Average temperature and rainfall</li>
+            <li><strong>Agricultural Needs:</strong> Irrigation area</li>
+        </ul>
+        <p>The Random Forest algorithm was chosen for its ability to capture complex non-linear relationships and its robustness against overfitting.</p>
+    </div>
+    
+    <div class="about-section">
+        <h2>Technical Implementation</h2>
+        <p>This application is built using:</p>
+        <ul>
+            <li><strong>Backend:</strong> Python with Flask framework</li>
+            <li><strong>Machine Learning:</strong> Scikit-learn library</li>
+            <li><strong>Data Analysis:</strong> Pandas and NumPy</li>
+            <li><strong>Visualization:</strong> Matplotlib and Seaborn</li>
+            <li><strong>Frontend:</strong> HTML, CSS, and JavaScript</li>
+        </ul>
+    </div>
+    
+    <div class="about-section">
+        <h2>Feature Importance</h2>
+        <img src="{{ url_for('static', filename='images/feature_importance.png') }}" alt="Feature Importance Chart">
+        <p>The chart above shows the relative importance of each feature in predicting water demand, as determined by our machine learning model.</p>
+    </div>
+</div>
+<div class="about-section">
+        <h2>Project Is Created By :</h2>
+        <p><b> Harsh Maurya </b> </p>
+        <p> Github: @Advik-harsha </p>
+    </div>
+</div>
+{% endblock %}

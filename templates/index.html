@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card">
+    <h1>Water Consumption Forecasting using Machine Learning</h1>
+    <p>Welcome to the Water Consumption Forecasting. This tool uses machine learning to forecast water requirements based on various factors including population, industrial activity, climate conditions, and irrigation needs.</p>
+    
+    <div class="features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Accurate prediction of water demand using Random Forest Regression</li>
+            <li>Comprehensive analysis of historical water usage patterns</li>
+            <li>Visual comparison of your inputs with historical averages</li>
+            <li>Detailed reports to support water resource planning</li>
+        </ul>
+    </div>
+    
+    <div class="cta-button">
+        <a href="/predict" class="button">Start Forecasting</a>
+    </div>
+    
+    <div class="historical-chart">
+        <h2>Historical Water Requirement Trend</h2>
+        <img src="{{ url_for('static', filename='images/historical.png') }}" alt="Historical Water Requirement Trend">
+    </div>
+</div>
+{% endblock %}
